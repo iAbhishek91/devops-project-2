@@ -1,10 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const uploadRouter = require("./routers/upload");
+const { PORT } = require("./constants");
 
 const app = express();
-
-const PORT = 8080;
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

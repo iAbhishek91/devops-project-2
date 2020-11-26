@@ -8,16 +8,20 @@
   "scripts": {
     "build": "babel src -d dist",
     "start": "npm run build && node dist/app.js",
+    "start:prod": "node dist/app.js",
     "test": "jest ./src --collectCoverage"
   },
   "dependencies": {
-    "@babel/cli": "^7.12.8",
-    "@babel/core": "^7.12.9",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/runtime": "^7.12.5",
+    "@google-cloud/pubsub": "^2.6.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "jest": "^24.5.0"
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "jest": "^26.6.3"
   }
 }
