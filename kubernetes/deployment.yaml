@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        labels:
+          type: source-deployment
+        name: source-deployment
+        namespace: google-authorised
+spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            type: source-pod
+        template:
+          metadata:
+            name: source-pod
+            labels:
+              type: source-pod
+          spec:
+            containers:
+            - image: abdas81/data-processing:1.0.0
+              name: source-container
+              ports:
+              - name: http
+                containerPort: 8888
+              env:
+              - name: GOOGLE_CLOUD_PROJECT
+                value: nice-beanbag-288720
+            serviceAccountName: google-sa
